@@ -1,6 +1,15 @@
+import { routes } from '@/app/router/routes';
+import { useRouter } from '@/shared/lib/navigation/use-router';
 import { Link } from '@/shared/ui/link';
 
 export const NotFound = () => {
+  const { currentPath } = useRouter();
+  const hasRoute = routes.some((route) => route.path === currentPath);
+
+  if (hasRoute) {
+    return null;
+  }
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-center px-4">
       <h1 className="text-4xl font-bold text-red-600 mb-4">404 — Страница не найдена</h1>
