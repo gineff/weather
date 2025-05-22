@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Input } from './input';
 import { SubmitButton } from './submit-button';
 import { FormError } from './form-error';
-import { loginUser, registerUser } from '../model/actions';
+import { registerUser } from '../model/thunks';
 import { selectAuthLoading, selectAuthError } from '../model/selectors';
 import { useSelector } from '@/shared/lib/store/use-selector';
 import { useThunkDispatch } from '@/shared/lib/store/use-thunk-dispatch';

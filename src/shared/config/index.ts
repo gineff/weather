@@ -7,4 +7,5 @@ export const ROUTES = {
   REGISTER: '/register',
   NOT_FOUND: '/404',
   PROFILE: '/profile',
+  WEATHER: '/weather',
 }

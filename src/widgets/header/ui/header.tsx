@@ -5,7 +5,7 @@ import { Icon } from '@/shared/ui/icon';
 import { useSelector } from '@/shared/lib/store/use-selector';
 import { menuItems } from '../config';
 import { Link } from '@/shared/ui/link';
-import { ProfileButton } from '@/entities/user/ui/profile-button';
+import { ProfileButton } from '@/widgets/header/ui/profile-button';
 import { useRouter } from '@/shared/lib/navigation/use-router';
 import { ROUTES } from '@/shared/config';
 
@@ -37,7 +37,7 @@ export const Header = () => {
           <Link to="/">Wzz</Link>
         </div>
 
-        <nav className="hidden md:flex space-x-6">
+        <nav className="hidden md:flex items-center space-x-6">
           <MenuItemList items={menuItems} />
           {!isAuthPage && (isAuthenticated ? (
             <ProfileButton />

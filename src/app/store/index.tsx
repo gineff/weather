@@ -4,6 +4,8 @@ import { authReducer } from '@/entities/auth/model/reducer';
 import { StoreContext } from '@/shared/lib/store/context';
 import type { AuthState } from '@/entities/auth/model/types';
 import type { ReducersMapObject, RootAction } from './types';
+import { weatherReducer } from '@/entities/weather/model/reducer';
+import type { WeatherState } from '@/entities/weather/model/types';
 
 const combineReducers =
   <S, A>(reducers: ReducersMapObject<S, A>) =>
@@ -21,8 +23,11 @@ interface StoreProviderProps {
 
 export const StoreProvider = ({ children }: StoreProviderProps) => {
   const [state, dispatch] = useReducer(
-    combineReducers<{ auth: AuthState }, RootAction>({
+    combineReducers<{ auth: AuthState; weather: WeatherState }, RootAction>({
+      //@ts-expect-error Нужно разбираться
       auth: authReducer,
+      //@ts-expect-error Нужно разбираться
+      weather: weatherReducer,
     }),
     initialState,
   );

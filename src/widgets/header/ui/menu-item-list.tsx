@@ -16,6 +16,25 @@ export interface MenuItemListProps {
 export const MenuItemList: FC<MenuItemListProps> = ({ items, isMobile = false, onClick }) => {
   const isAuthenticated = useSelector(selectIsAuthenticated);
 
+  if (!isMobile) {
+    return (
+      <>
+        {items.map((item, index) => {
+          return (
+            <Link
+              key={index}
+              to={item.href}
+              onClick={onClick}
+              className="text-gray-600 hover:text-blue-500 h-fit"
+            >
+              {item.label}
+            </Link>
+          );
+        })}
+      </>
+    );
+  }
+
   return (
     <>
       {items.map((item, index) => {
@@ -31,13 +50,14 @@ export const MenuItemList: FC<MenuItemListProps> = ({ items, isMobile = false, o
             }`}
           >
             <span className={`${item.icon ? 'flex items-center gap-2' : ''}`}>
-              {item.icon && <Icon type={item.icon} className="flex w-4 h-4" />}
+              {!isMobile && item.icon && <Icon type={item.icon} className="flex w-4 h-4" />}
               {item.label}
             </span>
           </Link>
         );
       })}
-      {isAuthenticated && isMobile && (
+
+      {isAuthenticated ? (
         <>
           <Link
             to={ROUTES.PROFILE}
@@ -60,8 +80,7 @@ export const MenuItemList: FC<MenuItemListProps> = ({ items, isMobile = false, o
             </span>
           </Link>
         </>
-      )}
-      {!isAuthenticated && isMobile && (
+      ) : (
         <Link
           to={ROUTES.LOGIN}
           className="block text-gray-600 hover:text-blue-500"

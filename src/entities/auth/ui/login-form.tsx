@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Input } from './input';
 import { SubmitButton } from './submit-button';
 import { FormError } from './form-error';
-import { loginUser } from '../model/actions';
+import { loginUser } from '../model/thunks';
 import { selectAuthLoading, selectAuthError } from '../model/selectors';
 import { useSelector } from '@/shared/lib/store/use-selector';
 import { useThunkDispatch } from '@/shared/lib/store/use-thunk-dispatch';
@@ -42,7 +42,7 @@ export const LoginForm = () => {
       await dispatch(loginUser({ email, password }));
       setEmail('');
       setPassword('');
-      navigate(ROUTES.HOME);
+      navigate(ROUTES.WEATHER);
     } catch {
       setFormError('Login failed');
     }
