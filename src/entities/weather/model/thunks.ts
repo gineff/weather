@@ -6,8 +6,10 @@ export const fetchWeather = (city: string) => async (dispatch: Dispatch<RootActi
   dispatch(weatherLoading());
 
   try {
+    //в задании сказано, что нужно использовать token полученный при авторизации, но он не подходит
+    const appid = import.meta.env.VITE_OPEN_WEATHER_API_KEY;
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=b7a9e9bc508890a38c4a1b8249cb4a6f&lang=ru&units=metric`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${appid}&lang=ru&units=metric`,
     );
 
     const data = await response.json();
