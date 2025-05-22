@@ -9,6 +9,7 @@ export const Layout: FC<PropsWithChildren> = ({ children }) => {
     if (token) {
       dispatch({ type: 'auth/LOGIN', payload: { token } });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

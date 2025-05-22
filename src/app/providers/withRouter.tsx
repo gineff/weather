@@ -2,7 +2,6 @@ import { useState, Suspense, useEffect } from 'react';
 import { Spinner } from '@/shared/ui/spinner';
 import { NavigationContext } from '@/shared/lib/navigation/context';
 
-
 export const withRouter = (Component: React.ComponentType) => () => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
@@ -10,7 +9,7 @@ export const withRouter = (Component: React.ComponentType) => () => {
     const handlePopState = () => {
       setCurrentPath(window.location.pathname);
     };
-    
+
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
@@ -27,4 +26,4 @@ export const withRouter = (Component: React.ComponentType) => () => {
       </Suspense>
     </NavigationContext.Provider>
   );
-}
+};

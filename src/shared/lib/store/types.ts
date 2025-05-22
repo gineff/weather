@@ -1,4 +1,4 @@
-import type { Dispatch } from "react";
+import type { Dispatch } from 'react';
 
 export type StoreContextValue = {
   state: RootState;
@@ -7,7 +7,7 @@ export type StoreContextValue = {
 
 export type ThunkAction<ReturnType = void> = (
   dispatch: Dispatch<RootAction>,
-  getState: () => RootState
+  getState: () => RootState,
 ) => ReturnType;
 
 // Тип для thunk dispatch

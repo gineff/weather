@@ -1,6 +1,6 @@
-import type { Dispatch } from "react";
-import { authLoading, login, authError } from "./actions";
-import type { Credentials, LoginPayload, RegisterData } from "./types";
+import type { Dispatch } from 'react';
+import { authLoading, login, authError } from './actions';
+import type { Credentials, LoginPayload, RegisterData } from './types';
 
 export const loginUser = (credentials: Credentials) => async (dispatch: Dispatch<RootAction>) => {
   dispatch(authLoading());

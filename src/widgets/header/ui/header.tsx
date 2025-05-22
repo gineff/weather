@@ -39,16 +39,17 @@ export const Header = () => {
 
         <nav className="hidden md:flex items-center space-x-6">
           <MenuItemList items={menuItems} />
-          {!isAuthPage && (isAuthenticated ? (
-            <ProfileButton />
-          ) : (
-            <Link
-              to="/login"
-              className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            >
-              Войти
-            </Link>
-          ))}
+          {!isAuthPage &&
+            (isAuthenticated ? (
+              <ProfileButton />
+            ) : (
+              <Link
+                to="/login"
+                className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              >
+                Войти
+              </Link>
+            ))}
         </nav>
 
         <button
@@ -62,7 +63,7 @@ export const Header = () => {
       {/* Выпадающее меню (только на маленьких экранах) */}
       {isMenuOpen && (
         <div className="block md:hidden space-y-3 pt-2 pb-4 px-4">
-          <MenuItemList items={menuItems} isMobile onClick={() => setIsMenuOpen(!isMenuOpen)}/>
+          <MenuItemList items={menuItems} isMobile onClick={() => setIsMenuOpen(!isMenuOpen)} />
         </div>
       )}
     </header>

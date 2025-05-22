@@ -3,7 +3,7 @@ import type { WeatherAction, WeatherState } from '@/entities/weather/model/types
 
 export type RootState = {
   auth: AuthState;
-  weather: WeatherState 
+  weather: WeatherState;
 };
 
 export type RootAction = AuthAction | WeatherAction; // | OtherAction | AnotherAction

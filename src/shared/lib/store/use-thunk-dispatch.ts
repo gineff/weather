@@ -1,6 +1,6 @@
-import { useCallback } from "react";
-import type { ThunkDispatch, ThunkAction } from "./types";
-import { useStore } from "./use-store";
+import { useCallback } from 'react';
+import type { ThunkDispatch, ThunkAction } from './types';
+import { useStore } from './use-store';
 
 export const useThunkDispatch = (): ThunkDispatch => {
   const { state, dispatch } = useStore();
@@ -12,7 +12,7 @@ export const useThunkDispatch = (): ThunkDispatch => {
       }
       return dispatch(action);
     },
-    [dispatch, state]
+    [dispatch, state],
   ) as ThunkDispatch;
 
   return thunkDispatch;

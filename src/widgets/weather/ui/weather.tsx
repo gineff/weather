@@ -17,6 +17,7 @@ export const WeatherWidget = () => {
   // При монтировании запрашиваем погоду для Москвы
   useEffect(() => {
     dispatch(fetchWeather('Moscow'));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) return <div>Загрузка погоды...</div>;

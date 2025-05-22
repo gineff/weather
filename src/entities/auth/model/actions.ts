@@ -1,5 +1,4 @@
-import type { Dispatch } from 'react';
-import type { LoginPayload, Credentials, RegisterData } from './types';
+import type { LoginPayload } from './types';
 //import type { RootAction } from '@/app/store/types'; - тип RootAction декларирован глобально
 
 export const login = (payload: LoginPayload) => ({

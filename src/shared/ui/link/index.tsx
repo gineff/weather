@@ -18,8 +18,8 @@ export const Link = ({ to, children, className, onClick }: LinkProps) => {
   };
 
   return (
-    <a href={to} onClick={handleClick} className={`${className}`}  rel="noopener noreferrer" >
+    <a href={to} onClick={handleClick} className={`${className}`} rel="noopener noreferrer">
       {children}
     </a>
   );
-}
+};

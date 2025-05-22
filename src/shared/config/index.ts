@@ -8,4 +8,4 @@ export const ROUTES = {
   NOT_FOUND: '/404',
   PROFILE: '/profile',
   WEATHER: '/weather',
-}
+};

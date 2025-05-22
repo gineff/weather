@@ -6,6 +6,8 @@ interface RouterContext {
 }
 
 export const NavigationContext = createContext<RouterContext>({
-  navigate: () => { throw new Error('No Router provider!') },
+  navigate: () => {
+    throw new Error('No Router provider!');
+  },
   currentPath: '/',
 });

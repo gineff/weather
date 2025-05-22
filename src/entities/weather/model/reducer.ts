@@ -6,10 +6,7 @@ export const initialState: WeatherState = {
   data: null,
 };
 
-export const weatherReducer = (
-  state = initialState,
-  action: WeatherAction
-): WeatherState => {
+export const weatherReducer = (state = initialState, action: WeatherAction): WeatherState => {
   switch (action.type) {
     case 'weather/LOADING':
       return { ...state, loading: true, error: null };
