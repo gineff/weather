@@ -1,7 +1,11 @@
-import { useSelector } from '@/app/store';
-import { Navigate } from '@/shared/ui/navigate'; // или кастомный Redirect
+import type { FC, PropsWithChildren } from 'react';
+import { selectIsAuthenticated } from '@/entities/auth';
+import { useRouter } from '@/shared/lib/navigation/use-router';
+import { useSelector } from '@/shared/lib/store/use-selector';
 
-export const ProtectedRoute = ({ children }) => {
-  const isAuth = useSelector((state) => state.auth.isAuthenticated);
-  return isAuth ? children : <Navigate to="/login" />;
+export const ProtectedRoute: FC<PropsWithChildren> = ({ children }) => {
+  const { navigate } = useRouter();
+  const isAuthenticated = useSelector(selectIsAuthenticated);
+  if (!isAuthenticated) navigate('/login');
+  return children;
 };
