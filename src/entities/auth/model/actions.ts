@@ -6,6 +6,10 @@ export const login = (payload: LoginPayload) => ({
   payload,
 });
 
+export const init = () => ({
+  type: 'auth/INIT' as const,
+});
+
 export const logout = () => ({
   type: 'auth/LOGOUT' as const,
 });
@@ -21,6 +25,7 @@ export const authError = (error: string) => ({
 
 // Union тип для всех действий
 export type AuthAction =
+  | ReturnType<typeof init>
   | ReturnType<typeof login>
   | ReturnType<typeof logout>
   | ReturnType<typeof authLoading>

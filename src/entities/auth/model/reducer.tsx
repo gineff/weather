@@ -1,6 +1,7 @@
 import type { AuthState, AuthAction } from './types';
 
 export const initialState: AuthState = {
+  isInitialized: false,
   isAuthenticated: false,
   token: null,
   loading: false,
@@ -13,9 +14,16 @@ export const authReducer = (state = initialState, action: AuthAction): AuthState
       return {
         ...state,
         isAuthenticated: true,
+        isInitialized: true,
         token: action.payload.token,
         loading: false,
         error: null,
+      };
+
+    case 'auth/INIT':
+      return {
+        ...state,
+        isInitialized: true,
       };
 
     case 'auth/LOGOUT':

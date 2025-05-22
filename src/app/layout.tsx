@@ -7,6 +7,7 @@ export const Layout: FC<PropsWithChildren> = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
+      // dispatch({ type: 'auth/INIT' });
       dispatch({ type: 'auth/LOGIN', payload: { token } });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
