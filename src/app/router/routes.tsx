@@ -1,3 +1,4 @@
+import { AboutPage } from '@/pages/about';
 import { Home } from '@/pages/home';
 import { LoginPage } from '@/pages/login';
 import { LogoutPage } from '@/pages/logout';
@@ -8,6 +9,7 @@ import { ROUTES } from '@/shared/config';
 
 export const routes = [
   { path: ROUTES.HOME, component: <Home /> },
+  { path: ROUTES.ABOUT, component: <AboutPage /> },
   { path: ROUTES.LOGIN, component: <LoginPage /> },
   { path: ROUTES.LOGOUT, component: <LogoutPage /> },
   { path: ROUTES.REGISTER, component: <RegisterPage /> },
